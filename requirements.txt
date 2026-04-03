@@ -1,0 +1,2 @@
+# install all libraries with this .txt
+# Allowed libraries: re, string, math, collections, itertools, matplotlib, wordcloud (or your own equivalent), pandas
