@@ -6,8 +6,7 @@ class TableOfContentsNode:
         self.children = []
 
     def __str__(self):
-        
-        pass
+        return str(self.title)
 
 class TableOfContents:
     def __init__(self, book_title, source_url):
@@ -28,12 +27,12 @@ class TableOfContents:
             
             # Fill missing sibling nodes with placeholders if they don't exist yet
             while len(current.children) <= index:
-                current.add_child(TOCNode("Untitled Placeholder"))
+                self.add_child(current, TableOfContentsNode("Untitled Placeholder"))
             
             current = current.children[index]
         current.title = title
 
-    def print_toc(self):
+    def print_toc(self, mode="indented"):
         print(f"Source: {self.source_url}\n")
         for i, child in enumerate(self.root.children, start=1):
             self.dfs_traverse(child, "indented", [i], 1)
