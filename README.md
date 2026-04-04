@@ -133,12 +133,11 @@ jupyter notebook Q2/DSA_Group_Project_2.ipynb
 ## Key Results
 
 *(To be filled in after final run)*
-- Most frequent letter: **?** (?%)
-- Top word (post-stopword removal): **?**
-- Most common bigram: **?**
-- Most common trigram: **?**
-- Average words per sentence: **?**
-
+- Most frequent letter: **e** *(11.942%)*
+- Top word (post-stopword removal): **one**
+- Most common bigram: **fyodr pavlovitch**
+- Most common trigram: **father pa ssy**
+- Average words per sentence: **14.54**
 ---
 
 ## Branch Strategy
