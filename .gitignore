@@ -1,0 +1,23 @@
+# .gitignore — DSA Group Project 2: TOC and Word Analyis
+
+# DOWNLOADED NOVEL TEXT (LARGE FILE, FETCHED AT RUNTIME VIA wget)
+*.txt
+
+# GENERATED PLOT OUTPUTS (REGENERATED EACH NOTEBOOK RUN)
+*.png
+
+# JUPYTER NOTEBOOK CHECKPOINTS
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# PYTHON CACHE
+__pycache__/
+*.py[cod]
+
+# OS FILES
+.DS_Store
+Thumbs.db
+
+# VIRTUAL ENVIRONMENTS (IF RUNNING LOCALLY)
+venv/
+.env/
