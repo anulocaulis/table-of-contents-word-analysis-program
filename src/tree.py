@@ -73,8 +73,8 @@ class TableOfContents:
             return current_level
         for child in node.children:
             result = self.get_depth(target_title, child, current_level + 1)
-          if result is not None:
-                return result
+        if result is not None:
+            return result
         return none
 
 
