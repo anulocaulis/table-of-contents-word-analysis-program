@@ -3,9 +3,11 @@
 # Python 3 (Google Colab environment)
 # STANDARD LIBRARY (no install needed):
 # re, string, math, collections, itertools
-# Q1 (TOC Tree): MIKE FILL IN THIS
-# Q2 (Text Analysis): packages below
 
+# Q1 (TOC Tree): MIKE FILL IN THIS
+
+
+# Q2 (Text Analysis): 
 # DATA MANIPULATION
 pandas>=1.5.0
 # VISUALIZATION
