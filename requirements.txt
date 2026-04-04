@@ -1,2 +1,17 @@
-# install all libraries with this .txt
-# Allowed libraries: re, string, math, collections, itertools, matplotlib, wordcloud (or your own equivalent), pandas
+
+# requirements.txt — DSA Group Project
+# Python 3 (Google Colab environment)
+# STANDARD LIBRARY (no install needed):
+# re, string, math, collections, itertools
+# Q1 (TOC Tree): MIKE FILL IN THIS
+# Q2 (Text Analysis): packages below
+
+# DATA MANIPULATION
+pandas>=1.5.0
+# VISUALIZATION
+matplotlib>=3.6.0
+# WORD CLOUD
+wordcloud>=1.9.0
+# NLP — STOPWORD LIST ONLY
+# NOTE: only nltk.corpus.stopwords is permitted by assignment rules
+nltk>=3.8.0
