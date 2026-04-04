@@ -1,4 +1,4 @@
-# .gitignore — DSA Group Project 2: TOC and Word Analyis
+# .gitignore — TOC & Text Analysis
 
 # DOWNLOADED NOVEL TEXT (LARGE FILE, FETCHED AT RUNTIME VIA wget)
 *.txt
@@ -21,3 +21,6 @@ Thumbs.db
 # VIRTUAL ENVIRONMENTS (IF RUNNING LOCALLY)
 venv/
 .env/
+
+# NLTK DOWNLOADED DATA (FETCHED AT RUNTIME)
+nltk_data/
