@@ -17,12 +17,14 @@ def test_add_child(toc):
     assert len(toc.root.children) == 1
     # The title of the first child should match my title
     assert toc.root.children[0].title == "Chapter 1: SETTING THE STAGE"
+    
 def test_insert(toc):
     """ TEST FOR INSERT METHOD. """
     # Insert the first chapter
     toc.insert([1], "Chapter 1: SETTING THE STAGE")
     # First child title should be equal to my first chapter title
     assert toc.root.children[0].title == "Chapter 1: SETTING THE STAGE"
+    
 def test_missing_insert(toc):
     """ TEST FOR INSERT METHOD WHEN MISSING PARENTS. """
     # Insert Subsection
@@ -31,6 +33,7 @@ def test_missing_insert(toc):
     assert toc.root.children[0].title == "Untitled Placeholder"
     # The child of my first parent should be equal to the subsection title
     assert toc.root.children[0].children[0].title == "Installing the Toolkits"
+    
 def test_findNode(toc):
     """ TEST FOR FIND NODE METHOD """
     # Create Table of Contents
