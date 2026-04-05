@@ -32,7 +32,7 @@ class TableOfContents:
             current = current.children[index]
         current.title = title
 
-    def print_toc(self, mode="indented"):
+    def print_toc(self, mode):
         print(f"Source: {self.source_url}\n")
         for i, child in enumerate(self.root.children, start=1):
             self.dfs_traverse(child, "indented", [i], 1)
