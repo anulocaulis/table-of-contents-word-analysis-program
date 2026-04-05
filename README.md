@@ -59,9 +59,9 @@ Analyzes a public-domain novel from Project Gutenberg across two workstreams:
 | Item | Source |
 |------|--------|
 | Q1 Textbook | *Math for Deep Learning - Ronald T.Kneusel* |
-| Q2 URL | [Link](https://a.co/d/02MiYbto) |
+| Q2 URL | (https://a.co/d/02MiYbto) |
 | Q2 Novel | *The Brothers Karamazov* — Fyodor Dostoevsky (tr. Constance Garnett) |
-| Q2 URL | [Link](https://www.gutenberg.org/files/28054/28054-0.txt) |
+| Q2 URL | (https://www.gutenberg.org/files/28054/28054-0.txt) |
 
 ---
 
