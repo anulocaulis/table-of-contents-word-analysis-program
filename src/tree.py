@@ -63,7 +63,7 @@ class TableOfContents:
         target = self.find_node(self.root, node)
         if not node.children:
             return 0
-        return 1 + max(self.height(child) for child in node.children)
+        return 1 + max(self.get_height(child) for child in node.children)
 
     def get_depth(self, target_title, node=None, depth=0):
         if node is None:
