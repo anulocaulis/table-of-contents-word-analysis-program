@@ -72,8 +72,8 @@ class TableOfContents:
             return depth
         for child in node.children:
             result = self.get_depth(target_title, child, depth + 1)
-        if result is not None:
-            return result
+            if result is not None:
+                return result
         return None
 
 
