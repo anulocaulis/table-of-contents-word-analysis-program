@@ -69,12 +69,12 @@ class TableOfContents:
         if node is None:
             node = self.root
         if node.title == target_title:
-            return current_level
+            return depth
         for child in node.children:
-            result = self.get_depth(target_title, child, current_level + 1)
+            result = self.get_depth(target_title, child, depth + 1)
         if result is not None:
             return result
-        return none
+        return None
 
 
 # smoke test
