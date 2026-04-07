@@ -35,12 +35,12 @@ class TableOfContents:
     def print_toc(self, mode):
         print(f"Source: {self.source_url}\n")
         for i, child in enumerate(self.root.children, start=1):
-            self.dfs_traverse(child, "indented", [i], 1)
+            self.dfs_traverse(child, mode, [i], 1)
 
 
     def dfs_traverse(self, node, mode, indices, level):
         indent = "  " * level
-        if mode == "numbered":
+        if mode == "indented_numbered":
             print(f"{indent}{'.'.join(map(str, indices))} {node.title}")
         elif mode == "indented":
             print(f"{indent}- {node.title}")
