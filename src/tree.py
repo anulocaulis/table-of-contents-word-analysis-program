@@ -1,56 +1,123 @@
-# placeholder -- tree class implementation and smoke test
-
+# Tree Implementation
 class TableOfContentsNode:
     def __init__(self, title):
+        """
+        INITIALIZES A SINGLE NODE IN TABLE OF CONTENTS TREE
+        PARAMS:
+            self - NODE BEING INITIALIZED
+            title - TITLE OF CHAPTER OR SUBHEADING
+        RETURNS:
+            None
+        """
         self.title = title
         self.children = []
 
     def __str__(self):
+        """
+        RETURNS STRING REPRESENTATION OF NODE
+        PARAMS:
+          self -  NODE BEING RETURNED
+        RETURNS:
+          str -  Title of node
+        """
         return str(self.title)
 
 class TableOfContents:
     def __init__(self, book_title, source_url):
+        """
+        INITIALIZES TABLE OF CONTENT WITH ROOT/CHILDREN NODES AND SOURCE URL
+        PARAMS:
+            self - TREE BEING INITIALIZED
+            book_title - TITLE OF CHAPTER OR SUBHEADING
+            source_url - URL OF BOOK
+        RETURNS:
+            None
+        """
         self.root = TableOfContentsNode(book_title)
         self.source_url = source_url
         self.children = []
 
     def add_child(self, parent, child):
+        """
+        APPENDS CHILD NODE TO GIVEN PARENT NODE
+        PARAMS:
+            self - TREE BEING MODIFIED
+            parent(TableOfContentsNode) - NODE, CHILD IS BEING ADDED TO
+            child(TableOfContentsNode) - NEW NODE BEING ADDED
+        RETURNS:
+            None - MODIFIES PARENT NODE
+        """
         parent.children.append(child)
 
     def insert(self, path, title):
         """
-        Accepts path like [1, 2, 1] for Chapter 1, Section 2, Subsection 1.
+        INSERTS AT GIVEN PATH WITH ITS TITLE, "UNTITLED PLACEHOLDER" IF
+        PATH IS SKIPPED.
+        PARAMS:
+          self - TREE BEING MODIFIED
+          path - Accepts path like [1, 2, 1] for Chapter 1, Section 2, Subsection 1.
+          title - TITLE OF CHAPTER OR SUBHEADING
+        RETURNS:
+          None - MODIFIES TREE
         """
         current = self.root
         for step in path:
             index = step - 1
-            
+
             # Fill missing sibling nodes with placeholders if they don't exist yet
             while len(current.children) <= index:
                 self.add_child(current, TableOfContentsNode("Untitled Placeholder"))
-            
+
             current = current.children[index]
         current.title = title
 
     def print_toc(self, mode):
+        """
+        PRINTS ENTIRE TABLE OF CONTENTS THROUGH DFS TRAVERSE
+        PARAMS:
+            self - TREE BEING TRAVERSED
+            mode - FORMATING MODE ("indented_numbered", "indented", "plain")
+        RETURNS:
+            None - PRINTS TABLE OF CONTENTS
+        """
         print(f"Source: {self.source_url}\n")
         for i, child in enumerate(self.root.children, start=1):
             self.dfs_traverse(child, mode, [i], 1)
 
 
     def dfs_traverse(self, node, mode, indices, level):
+        """
+        TRAVERSES TREE THROUGH DEPTH-FIRST SEARCH
+        PARAMS:
+            self - TREE BEING TRAVERSED
+            node - CURRENT NODE
+            mode - FORMATING MODE ("indented_numbered", "indented", "plain")
+            indices - SEQUENCE OF NUMBERS TO NAME CHAPTERS OR SUBHEADINGS
+            level - CURRENT DEPTH LEVEL TO INDENT
+        RETURNS:
+            None - PRINTS TABLE OF CONTENTS
+        """
         indent = "  " * level
         if mode == "indented_numbered":
-            print(f"{indent}{'.'.join(map(str, indices))} {node.title}")
+            print(f"{indent}{'.'.join(map(str, indices))} {node.title}\n")
         elif mode == "indented":
-            print(f"{indent}- {node.title}")
+            print(f"{indent}- {node.title}\n")
         elif mode == "plain":
-            print(node.title)
+            print(node.title,"\n")
 
         for i, child in enumerate(node.children, start=1):
             self.dfs_traverse(child, mode, indices + [i], level + 1)
 
     def find_node(self, current, title):
+        """
+        RETURNS GIVEN NODE IF FOUND IN TREE
+        PARAMS:
+            self - TREE BEING TRAVERSED
+            current - CURRENT NODE
+            title - GIVEN TITLE THAT IS BEING SEARCHED
+        RETURNS:
+            Node - RETURNS TITLE OF NODE IF FOUND, NONE IF NOT FOUND
+        """
         if current.title == title:
             return current
         for child in current.children:
@@ -60,12 +127,29 @@ class TableOfContents:
         return None
 
     def get_height(self, node):
-        target = self.find_node(self.root, node)
+        """
+        RETURNS HEIGHT FROM A GIVEN NODE
+        PARAMS:
+            self - TREE BEING TRAVERSED
+            node - NODE WHERE WE CALCULATE OUR HEIGHT FROM
+        RETURNS:
+            height - RETURNS THE MAX HEIGHT FROM GIVEN NODE
+        """
         if not node.children:
             return 0
         return 1 + max(self.get_height(child) for child in node.children)
 
     def get_depth(self, target_title, node=None, depth=0):
+        """
+        RETURNS DEPTH FROM TARGET_TITLE
+        PARAMS:
+            self - TREE BEING TRAVERSED
+            target_title - CALCULATES DEPTH FROM TARGET_TITLE
+            node - DEFAULTED TO NONE
+            depth - DEFAULTED TO 0
+        RETURNS:
+            depth - RETURNS depth from given target_title
+        """
         if node is None:
             node = self.root
         if node.title == target_title:
