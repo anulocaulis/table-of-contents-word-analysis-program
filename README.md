@@ -133,10 +133,10 @@ jupyter notebook Q2/DSA_Group_Project_2.ipynb
 
 ## Key Results
 
-- Most frequent letter: **e** *(11.942%)*
+- Most frequent letter: **e** *(11.9%)*
 - Top word (post-stopword removal): **one**
 - Most common bigram: **fyodr pavlovitch**
-- Most common trigram: **father pa ssy**
+- Most common trigram: **three thousand roubles**
 - Average words per sentence: **14.54**
 ---
 
